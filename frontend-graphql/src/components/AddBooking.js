@@ -65,7 +65,7 @@ const AddBooking = () => {
           }
         `;
 
-        const response = await axios.post('http://localhost:5000/graphql', { query: mutation });
+        const response = await axios.post('https://graphql-travel-book.vercel.app/graphql', { query: mutation });
         if (response.data.errors) {
           throw new Error(response.data.errors[0].message);
         }
@@ -76,7 +76,7 @@ const AddBooking = () => {
           text: 'Your booking was added successfully!',
         });
       } else {
-        const response = await axios.post('http://localhost:5000/api/bookings', formData);
+        const response = await axios.post('https://graphql-travel-book.vercel.app/bookings', formData);
         if (response.status !== 201) {
           throw new Error('Failed to add booking.');
         }
